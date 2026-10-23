@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Glowing effects and keyframes requested by user */
+@keyframes pulseGlowGold {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.25), 0 0 30px rgba(197, 160, 89, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.5), 0 0 45px rgba(197, 160, 89, 0.25);
+  }
+}
+
+@keyframes pulseGlowBlue {
+  0%, 100% {
+    box-shadow: 0 0 18px rgba(15, 43, 92, 0.25), 0 0 35px rgba(30, 58, 138, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(15, 43, 92, 0.45), 0 0 50px rgba(30, 58, 138, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.glow-gold {
+  animation: pulseGlowGold 3s infinite ease-in-out;
+}
+
+.glow-blue {
+  animation: pulseGlowBlue 3s infinite ease-in-out;
+}
+
+.card-glow-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glow-hover:hover {
+  box-shadow: 0 15px 35px -5px rgba(15, 43, 92, 0.12), 0 0 20px rgba(30, 58, 138, 0.12);
+  transform: translateY(-2px);
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shimmer 2.5s infinite;
+}
+
+/* Print styling for professional A4 Hotel Invoices */
+@media print {
+  nav, footer, .no-print, header, .fixed {
+    display: none !important;
+  }
+  body, html {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+  .invoice-paper {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    page-break-inside: avoid;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+}
+

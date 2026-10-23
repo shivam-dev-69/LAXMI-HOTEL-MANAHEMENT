@@ -1,0 +1,6 @@
+{
+  "name": "Laxmi Hotel & Luxury HMS",
+  "description": "High-end luxury hotel website and complete hotel operations management system for Laxmi Hotel, Gomti Nagar, Lucknow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
